@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador de Tarefas — Snippets de Código</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+    <style>
+        :root {
+            --theme-color: #2563eb;
+            --theme-color-hover: #1d4ed8;
+            --sidebar-width: 280px;
+        }
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background: #0f172a;
+            color: #e2e8f0;
+        }
+        .sidebar {
+            background: #1e293b;
+            border-right: 1px solid #334155;
+        }
+        .sidebar .app-name {
+            background: #1e293b;
+            border-bottom: 1px solid #334155;
+            color: #fff;
+        }
+        .sidebar .app-subname {
+            color: #94a3b8;
+        }
+        .sidebar ul li a {
+            color: #cbd5e1;
+        }
+        .sidebar ul li a:hover,
+        .sidebar ul li.active a {
+            color: #2563eb;
+        }
+        .markdown-section {
+            color: #e2e8f0;
+        }
+        .markdown-section h1 { color: #fff; border-bottom: 1px solid #334155; }
+        .markdown-section h2 { color: #fff; }
+        .markdown-section h3 { color: #cbd5e1; }
+        .markdown-section code {
+            background: #334155;
+            color: #f87171;
+            padding: 0.15em 0.4em;
+            border-radius: 4px;
+        }
+        .markdown-section pre {
+            background: #0f172a;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            padding: 1rem;
+            overflow-x: auto;
+        }
+        .markdown-section pre code {
+            background: transparent;
+            color: #e2e8f0;
+            padding: 0;
+        }
+        .markdown-section blockquote {
+            border-left: 3px solid #2563eb;
+            background: #1e293b;
+            padding: 0.5rem 1rem;
+            margin: 1rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .markdown-section table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        .markdown-section th, .markdown-section td {
+            border: 1px solid #334155;
+            padding: 0.5rem;
+            text-align: left;
+        }
+        .markdown-section th {
+            background: #1e293b;
+            color: #fff;
+        }
+        .markdown-section a { color: #60a5fa; }
+        .markdown-section strong { color: #fff; }
+        .markdown-section .note { 
+            background: #1e293b; 
+            border: 1px solid #334155; 
+            border-radius: 8px; 
+            padding: 1rem; 
+            margin: 1rem 0; 
+        }
+        .footer-note {
+            text-align: center; 
+            color: #64748b; 
+            font-size: 0.85rem; 
+            margin-top: 2rem; 
+            padding: 1rem;
+        }
+        /* Disable copy visual deterrent */
+        .markdown-section pre {
+            user-select: none;
+            -webkit-user-select: none;
+        }
+        .markdown-section pre::before {
+            content: "📖 Visualização — digite você mesmo para aprender";
+            display: block;
+            font-size: 0.7rem;
+            color: #64748b;
+            margin-bottom: 0.5rem;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+    <script>
+        // Detecta se está no GitHub Pages (hostname contém github.io) ou local
+        const isGitHubPages = location.hostname.includes('github.io');
+        window.$docsify = {
+            name: 'Gerenciador de Tarefas',
+            repo: '',
+            loadSidebar: true,
+            subMaxLevel: 2,
+            coverpage: false,
+            mergeNavbar: true,
+            formatUpdated: '{MM}/{DD}/{YYYY}',
+            themeColor: '#2563eb',
+            darklightTheme: true,
+            basePath: isGitHubPages ? '/dsw_snippets_site/' : '/',
+            plugins: [
+                function(hook, vm) {
+                    hook.doneEach(function() {
+                        document.querySelectorAll('pre code').forEach(el => {
+                            el.addEventListener('contextmenu', e => e.preventDefault());
+                        });
+                    });
+                }
+            ]
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>
+</body>
+</html>
